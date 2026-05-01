@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRP Gym | Ramesh Pujar - Dharwad's Premier Fitness Hub</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+:root {
+--neon-blue: #00f2ff;
+--electric-orange: #ff6b00;
+--success-green: #22c55e;
+}
+
+body {
+font-family: 'Inter', sans-serif;
+background-color: #0a0a0a;
+color: #ffffff;
+overflow-x: hidden;
+scroll-behavior: smooth;
+}
+
+.glass {
+background: rgba(255, 255, 255, 0.03);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.neon-text-blue { text-shadow: 0 0 10px rgba(0, 242, 255, 0.5); }
+.neon-border-blue { border-color: var(--neon-blue); box-shadow: 0 0 15px rgba(0, 242, 255, 0.3); }
+.neon-border-orange { border-color: var(--electric-orange); box-shadow: 0 0 15px rgba(255, 107, 0, 0.3); }
+
+.hero-gradient {
+background: linear-gradient(to right, rgba(10, 10, 10, 0.95), rgba(10, 10, 10, 0.4)),
+url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop');
+background-size: cover;
+background-position: center;
+}
+
+.btn-glow-green:hover {
+box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+transform: translateY(-2px);
+}
+
+.scroll-reveal {
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.8s ease-out;
+}
+
+.scroll-reveal.active {
+opacity: 1;
+transform: translateY(0);
+}
+
+.nav-scrolled {
+background: rgba(10, 10, 10, 0.95);
+padding-top: 0.5rem;
+padding-bottom: 0.5rem;
+box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+input, select {
+background: rgba(255, 255, 255, 0.05) !important;
+border: 1px solid rgba(255, 255, 255, 0.1) !important;
+color: white !important;
+}
+
+input:focus {
+border-color: var(--neon-blue) !important;
+outline: none;
+box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+}
+
+.bmi-badge {
+transition: all 0.3s ease;
+}
+</style>
+</head>
+<body>
+
+<!-- Sticky Navigation -->
+<nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 px-6 lg:px-20 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-orange-500 rounded-lg flex items-center justify-center font-black text-xl">S</div>
+<span class="text-2xl font-black tracking-tighter uppercase">STRP <span class="text-blue-400">Gym</span></span>
+</div>
+
+<div class="hidden md:flex gap-8 font-semibold text-sm uppercase tracking-widest text-gray-300">
+<a href="#home" class="hover:text-cyan-400 transition">Home</a>
+<a href="#services" class="hover:text-cyan-400 transition">Services</a>
+<a href="#bmi" class="hover:text-cyan-400 transition">BMI</a>
+<a href="#pricing" class="hover:text-cyan-400 transition">Membership</a>
+<a href="#contact" class="hover:text-cyan-400 transition">Location</a>
+</div>
+
+<a href="tel:09663018930" class="bg-green-500 hover:bg-green-400 text-black px-6 py-2 rounded-full font-bold text-sm transition btn-glow-green">
+CALL NOW
+</a>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="relative min-h-screen flex items-center pt-20 px-6 lg:px-20 hero-gradient">
+<div class="max-w-4xl z-10">
+<div class="inline-block px-4 py-1 border border-blue-500/50 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold tracking-widest mb-6 uppercase">
+<i class="fas fa-bolt mr-2"></i> Elevate Your Fitness Journey
+</div>
+<h1 class="text-6xl lg:text-8xl font-black mb-6 leading-tight">
+Build <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Strength.</span><br>
+Transform Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-400">Life.</span>
+</h1>
+<p class="text-xl text-gray-300 mb-10 max-w-xl leading-relaxed">
+Join STRP Gym and unlock your strongest version with expert training from Ramesh Pujar. Real results for real people in the heart of Dharwad.
+</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#join-form" class="px-10 py-4 bg-green-500 text-black font-black rounded-lg text-lg hover:bg-green-400 transition btn-glow-green uppercase tracking-wider text-center">
+Join Now
+</a>
+<a href="#join-form" onclick="setFormGoal('Free Trial')" class="px-10 py-4 bg-transparent border-2 border-white/20 text-white font-black rounded-lg text-lg hover:bg-white hover:text-black transition uppercase tracking-wider text-center">
+Book Free Trial
+</a>
+</div>
+
+<!-- Trust Bar -->
+<div class="mt-16 flex items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="flex text-yellow-400">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="far fa-star text-gray-500"></i>
+</div>
+<span class="font-bold">4.0 Rating</span>
+</div>
+<div class="h-8 w-px bg-white/20"></div>
+<p class="text-gray-400 text-sm">Trusted by 500+ Fitness Enthusiasts in Dharwad</p>
+</div>
+</div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-24 px-6 lg:px-20 bg-[#0d0d0d]">
+<div class="text-center mb-16">
+<h2 class="text-blue-400 font-bold tracking-widest uppercase mb-4">What We Offer</h2>
+<h3 class="text-4xl lg:text-5xl font-black mb-4">Premium Training Programs</h3>
+<div class="w-24 h-1 bg-orange-500 mx-auto"></div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass p-8 rounded-2xl hover:neon-border-blue transition duration-500 group cursor-pointer" onclick="setFormGoal('Weight Training')">
+<div class="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 text-2xl mb-6 group-hover:bg-blue-500 group-hover:text-black transition">
+<i class="fas fa-dumbbell"></i>
+</div>
+<h4 class="text-xl font-bold mb-3">Weight Training</h4>
+<p class="text-gray-400 text-sm mb-4">Professional equipment and spotting for maximum muscle hypertrophy.</p>
+<span class="text-blue-400 text-xs font-bold uppercase tracking-tighter">Enquire Now →</span>
+</div>
+
+<div class="glass p-8 rounded-2xl hover:neon-border-orange transition duration-500 group cursor-pointer" onclick="setFormGoal('HIIT')">
+<div class="w-14 h-14 bg-orange-500/20 rounded-xl flex items-center justify-center text-orange-500 text-2xl mb-6 group-hover:bg-orange-500 group-hover:text-black transition">
+<i class="fas fa-fire"></i>
+</div>
+<h4 class="text-xl font-bold mb-3">HIIT Workouts</h4>
+<p class="text-gray-400 text-sm mb-4">High-intensity intervals to burn fat and increase metabolic rate effectively.</p>
+<span class="text-orange-500 text-xs font-bold uppercase tracking-tighter">Enquire Now →</span>
+</div>
+
+<div class="glass p-8 rounded-2xl hover:neon-border-blue transition duration-500 group cursor-pointer" onclick="setFormGoal('Personal Training')">
+<div class="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 text-2xl mb-6 group-hover:bg-blue-500 group-hover:text-black transition">
+<i class="fas fa-user-shield"></i>
+</div>
+<h4 class="text-xl font-bold mb-3">Personal Training</h4>
+<p class="text-gray-400 text-sm mb-4">One-on-one sessions with Ramesh Pujar tailoring plans to your body type.</p>
+<span class="text-blue-400 text-xs font-bold uppercase tracking-tighter">Enquire Now →</span>
+</div>
+
+<div class="glass p-8 rounded-2xl hover:neon-border-orange transition duration-500 group cursor-pointer" onclick="setFormGoal('Kickboxing')">
+<div class="w-14 h-14 bg-orange-500/20 rounded-xl flex items-center justify-center text-orange-500 text-2xl mb-6 group-hover:bg-orange-500 group-hover:text-black transition">
+<i class="fas fa-hand-fist"></i>
+</div>
+<h4 class="text-xl font-bold mb-3">Kickboxing</h4>
+<p class="text-gray-400 text-sm mb-4">Cardio-intensive self-defense sessions for agility and power.</p>
+<span class="text-orange-500 text-xs font-bold uppercase tracking-tighter">Enquire Now →</span>
+</div>
+</div>
+</section>
+
+<!-- BMI Calculator Section -->
+<section id="bmi" class="py-24 px-6 lg:px-20 bg-black">
+<div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+<div class="flex-1">
+<h2 class="text-orange-500 font-bold tracking-widest uppercase mb-4">Fitness Tool</h2>
+<h3 class="text-4xl lg:text-5xl font-black mb-6">Calculate Your <span class="text-blue-400">BMI</span></h3>
+<p class="text-gray-400 text-lg mb-8">Body Mass Index (BMI) is a simple tool that helps you understand if you are at a healthy weight for your height. Let's find your starting point!</p>
+
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="p-4 glass rounded-xl">
+<span class="block text-blue-400 font-bold">18.5 - 24.9</span>
+<span class="text-xs text-gray-500 uppercase">Healthy Weight</span>
+</div>
+<div class="p-4 glass rounded-xl">
+<span class="block text-orange-500 font-bold">25.0 - 29.9</span>
+<span class="text-xs text-gray-500 uppercase">Overweight</span>
+</div>
+</div>
+</div>
+
+<div class="flex-1 w-full max-w-md">
+<div class="glass p-10 rounded-[30px] border-orange-500/30">
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-gray-400">Height (cm)</label>
+<input type="number" id="bmiHeight" placeholder="e.g. 175" class="w-full p-4 rounded-xl">
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-gray-400">Weight (kg)</label>
+<input type="number" id="bmiWeight" placeholder="e.g. 70" class="w-full p-4 rounded-xl">
+</div>
+<button onclick="calculateBMI()" class="w-full py-4 bg-blue-500 text-black font-black rounded-xl hover:bg-blue-400 transition uppercase tracking-widest">
+Calculate Now
+</button>
+
+<div id="bmiResult" class="hidden mt-6 pt-6 border-t border-white/10 text-center">
+<span class="text-gray-400 text-sm uppercase tracking-widest block mb-2">Your Result</span>
+<div id="bmiValue" class="text-5xl font-black text-blue-400 mb-2">0.0</div>
+<div id="bmiStatus" class="inline-block px-4 py-1 rounded-full text-xs font-bold uppercase bg-blue-500/20 text-blue-400">Normal</div>
+<p id="bmiAdvice" class="text-gray-400 text-xs mt-4"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Join Form Section -->
+<section id="join-form" class="py-24 px-6 lg:px-20 relative bg-[#0a0a0a]">
+<div class="max-w-4xl mx-auto glass p-10 lg:p-16 rounded-[40px] border-blue-500/30">
+<div class="text-center mb-12">
+<h3 class="text-3xl lg:text-5xl font-black mb-4">Start Your <span class="text-blue-400">Transformation</span></h3>
+<p class="text-gray-400">Enter your details below to send a direct message to the gym owner.</p>
+</div>
+
+<form id="whatsappForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Your Full Name</label>
+<input type="text" id="userName" placeholder="John Doe" required class="w-full p-4 rounded-xl">
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Phone Number</label>
+<input type="tel" id="userPhone" placeholder="10 Digit Mobile Number" required class="w-full p-4 rounded-xl">
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Main Fitness Goal</label>
+<select id="userGoal" class="w-full p-4 rounded-xl appearance-none">
+<option value="Weight Loss">Weight Loss</option>
+<option value="Muscle Building">Muscle Building / Weight Gain</option>
+<option value="Personal Training">Personal Training</option>
+<option value="Zumba/Kickboxing">Group Classes (Zumba/Kickboxing)</option>
+<option value="General Fitness">General Health & Fitness</option>
+<option value="Free Trial">Book Free Trial Session</option>
+</select>
+</div>
+<div class="md:col-span-2 mt-4">
+<button type="submit" class="w-full py-5 bg-green-500 text-black font-black rounded-xl text-xl hover:bg-green-400 transition btn-glow-green uppercase tracking-widest">
+Submit & Message via WhatsApp <i class="fab fa-whatsapp ml-2"></i>
+</button>
+</div>
+</form>
+</div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="py-24 px-6 lg:px-20 bg-[#0a0a0a]">
+<div class="text-center mb-16">
+<h2 class="text-orange-500 font-bold tracking-widest uppercase mb-4">Membership Plans</h2>
+<h3 class="text-4xl lg:text-5xl font-black mb-4">Choose Your Strength</h3>
+<p class="text-green-500 font-bold animate-pulse"><i class="fas fa-clock mr-2"></i> Limited Time Offer: Join now & get 20% off!</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+<!-- Monthly -->
+<div class="glass p-10 rounded-3xl border-white/5 flex flex-col hover:neon-border-blue transition">
+<span class="text-gray-400 font-bold mb-4 uppercase tracking-widest text-sm">Monthly</span>
+<div class="mb-8"><span class="text-5xl font-black">₹1,500</span><span class="text-gray-500">/mo</span></div>
+<ul class="space-y-4 mb-10 text-gray-300 flex-grow text-sm">
+<li><i class="fas fa-check text-blue-400 mr-2"></i> Full Equipment Access</li>
+<li><i class="fas fa-check text-blue-400 mr-2"></i> Locker facility</li>
+<li><i class="fas fa-check text-blue-400 mr-2"></i> General coaching</li>
+</ul>
+<button onclick="setFormGoal('Monthly Plan')" class="w-full py-4 border-2 border-white/20 rounded-xl font-bold hover:bg-white hover:text-black transition uppercase tracking-wider">Select Plan</button>
+</div>
+
+<!-- Most Popular -->
+<div class="bg-gradient-to-b from-blue-900/40 to-black p-10 rounded-3xl border-2 border-blue-500/50 flex flex-col relative transform scale-105 shadow-2xl shadow-blue-500/20">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-500 text-black px-6 py-1 rounded-full font-black text-xs uppercase tracking-tighter">Most Popular</div>
+<span class="text-blue-400 font-bold mb-4 uppercase tracking-widest text-sm">Quarterly</span>
+<div class="mb-8"><span class="text-5xl font-black">₹3,999</span><span class="text-gray-500">/3 mo</span></div>
+<ul class="space-y-4 mb-10 text-gray-300 flex-grow text-sm">
+<li><i class="fas fa-check text-blue-400 mr-2"></i> All standard features</li>
+<li><i class="fas fa-check text-blue-400 mr-2"></i> Weekly Diet Consultations</li>
+<li><i class="fas fa-check text-blue-400 mr-2"></i> 2 PT sessions per month</li>
+</ul>
+<button onclick="setFormGoal('Quarterly Plan (Most Popular)')" class="w-full py-4 bg-blue-500 text-black rounded-xl font-black hover:bg-blue-400 transition uppercase tracking-wider shadow-lg shadow-blue-500/50">Join Now</button>
+</div>
+
+<!-- Yearly -->
+<div class="glass p-10 rounded-3xl border-white/5 flex flex-col hover:neon-border-orange transition">
+<span class="text-orange-500 font-bold mb-4 uppercase tracking-widest text-sm">Annual</span>
+<div class="mb-8"><span class="text-5xl font-black">₹12,000</span><span class="text-gray-500">/yr</span></div>
+<ul class="space-y-4 mb-10 text-gray-300 flex-grow text-sm">
+<li><i class="fas fa-check text-orange-500 mr-2"></i> 1 Month Personal Training</li>
+<li><i class="fas fa-check text-orange-500 mr-2"></i> Free Supplement Kit</li>
+<li><i class="fas fa-check text-orange-500 mr-2"></i> Guest passes (4/month)</li>
+</ul>
+<button onclick="setFormGoal('Annual Plan')" class="w-full py-4 border-2 border-orange-500/20 text-orange-500 rounded-xl font-bold hover:bg-orange-500 hover:text-white transition uppercase tracking-wider">Select Plan</button>
+</div>
+</div>
+</section>
+
+<!-- Location Section -->
+<section id="contact" class="py-24 px-6 lg:px-20 bg-[#0d0d0d]">
+<div class="flex flex-col lg:flex-row gap-16">
+<div class="flex-1">
+<h2 class="text-blue-400 font-bold tracking-widest uppercase mb-4">Visit Us</h2>
+<h3 class="text-4xl font-black mb-8">Location & Contact</h3>
+
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="text-blue-400 text-2xl mt-1"><i class="fas fa-location-dot"></i></div>
+<div>
+<h4 class="text-xl font-bold mb-2">Address</h4>
+<p class="text-gray-400">Nirmal Residency, Double Road, Bendre Nagar, Sampige Nagar, Dharwad, Karnataka</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="text-orange-500 text-2xl mt-1"><i class="fas fa-phone-alt"></i></div>
+<div>
+<h4 class="text-xl font-bold mb-2">Call Us</h4>
+<p class="text-gray-400">096630 18930</p>
+<a href="tel:09663018930" class="inline-block mt-4 text-green-500 font-bold hover:underline">Call Ramesh Pujar Now →</a>
+</div>
+</div>
+</div>
+
+<div class="mt-12 flex gap-4">
+<a href="https://maps.google.com/?q=STRP+Gym+Dharwad" target="_blank" class="px-8 py-3 bg-blue-500 text-black font-bold rounded-lg hover:bg-blue-400 transition">Get Directions</a>
+</div>
+</div>
+
+<div class="flex-1 h-[400px] rounded-3xl overflow-hidden border-4 border-white/10">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3847.458925567845!2d75.01!3d15.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8d72851a0b3e5%3A0x6b4b4b4b4b4b4b4b!2sSTRP+Gym!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0; filter: grayscale(1) invert(0.9) contrast(1.2);" allowfullscreen="" loading="lazy"></iframe>
+</div>
+</div>
+</section>
+
+<!-- Footer Banner -->
+<footer class="py-20 px-6 lg:px-20 text-center border-t border-white/5">
+<h2 class="text-4xl lg:text-6xl font-black mb-8 leading-tight">Your Journey Starts Today.</h2>
+<a href="#join-form" class="px-12 py-5 bg-green-500 text-black font-black rounded-full text-xl hover:bg-green-400 transition btn-glow-green uppercase tracking-widest inline-block">
+Join STRP Gym Now
+</a>
+</footer>
+
+<!-- Floating Actions -->
+<div class="fixed bottom-8 right-8 flex flex-col gap-4 z-40">
+<a href="https://wa.me/919663018930?text=Hi Ramesh, I am interested in joining STRP Gym!" target="_blank" class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-3xl shadow-lg hover:scale-110 transition duration-300">
+<i class="fab fa-whatsapp"></i>
+</a>
+<a href="tel:09663018930" class="w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover:scale-110 transition duration-300">
+<i class="fas fa-phone"></i>
+</a>
+</div>
+
+<script>
+// BMI Calculator Logic
+function calculateBMI() {
+const h = document.getElementById('bmiHeight').value;
+const w = document.getElementById('bmiWeight').value;
+const resultDiv = document.getElementById('bmiResult');
+const valSpan = document.getElementById('bmiValue');
+const statusDiv = document.getElementById('bmiStatus');
+const adviceP = document.getElementById('bmiAdvice');
+
+if (h > 0 && w > 0) {
+const bmi = (w / ((h / 100) * (h / 100))).toFixed(1);
+valSpan.innerText = bmi;
+resultDiv.classList.remove('hidden');
+
+let status = "";
+let colorClass = "";
+let advice = "";
+
+if (bmi < 18.5) {
+status = "Underweight";
+colorClass = "bg-yellow-500/20 text-yellow-500";
+advice = "Time to bulk up! STRP Gym's muscle building program is perfect for you.";
+} else if (bmi < 25) {
+status = "Normal";
+colorClass = "bg-green-500/20 text-green-500";
+advice = "Great job! Let's maintain this fitness with our strength training.";
+} else if (bmi < 30) {
+status = "Overweight";
+colorClass = "bg-orange-500/20 text-orange-500";
+advice = "Let's burn those extra calories with our HIIT and CrossFit sessions!";
+} else {
+status = "Obese";
+colorClass = "bg-red-500/20 text-red-500";
+advice = "It's time for a serious transformation. Talk to Ramesh Pujar today.";
+}
+
+statusDiv.innerText = status;
+statusDiv.className = `inline-block px-4 py-1 rounded-full text-xs font-bold uppercase ${colorClass}`;
+adviceP.innerText = advice;
+
+// Animated reveal
+resultDiv.style.opacity = 0;
+setTimeout(() => { resultDiv.style.opacity = 1; resultDiv.style.transition = 'opacity 0.5s'; }, 50);
+}
+}
+
+// WhatsApp Integration Logic
+const whatsappForm = document.getElementById('whatsappForm');
+const gymOwnerNumber = "919663018930"; // International format without +
+
+whatsappForm.addEventListener('submit', function(e) {
+e.preventDefault();
+
+const name = document.getElementById('userName').value;
+const phone = document.getElementById('userPhone').value;
+const goal = document.getElementById('userGoal').value;
+
+const message = `Hello Ramesh Sir, %0A%0AI am interested in joining *STRP Gym*. Here are my details:%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Goal/Plan:* ${goal}%0A%0APlease let me know the next steps. Thanks!`;
+
+const whatsappUrl = `https://wa.me/${gymOwnerNumber}?text=${message}`;
+window.open(whatsappUrl, '_blank');
+});
+
+// Helper to auto-scroll and set the goal when clicking specific buttons
+function setFormGoal(goalName) {
+const goalSelect = document.getElementById('userGoal');
+const targetSection = document.getElementById('join-form');
+
+let found = false;
+for(let i=0; i < goalSelect.options.length; i++) {
+if(goalSelect.options[i].value === goalName) {
+goalSelect.selectedIndex = i;
+found = true;
+break;
+}
+}
+
+if(!found) {
+const newOpt = document.createElement('option');
+newOpt.value = goalName;
+newOpt.text = goalName;
+goalSelect.add(newOpt);
+goalSelect.value = goalName;
+}
+
+targetSection.scrollIntoView({ behavior: 'smooth' });
+targetSection.querySelector('.glass').classList.add('neon-border-blue');
+setTimeout(() => {
+targetSection.querySelector('.glass').classList.remove('neon-border-blue');
+}, 2000);
+}
+
+// Navbar Scroll Effect
+const navbar = document.getElementById('navbar');
+window.onscroll = () => {
+if (window.scrollY > 50) {
+navbar.classList.add('nav-scrolled');
+} else {
+navbar.classList.remove('nav-scrolled');
+}
+
+// Scroll Reveal
+document.querySelectorAll('.scroll-reveal').forEach(el => {
+const rect = el.getBoundingClientRect();
+if (rect.top < window.innerHeight - 100) el.classList.add('active');
+});
+};
+
+// Init reveal classes
+document.querySelectorAll('section, .glass, h1').forEach(el => el.classList.add('scroll-reveal'));
+</script>
+</body>
+</html>
